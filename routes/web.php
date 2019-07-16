@@ -19,3 +19,5 @@ Route::get('/', 'HomeController@index');
 Auth::routes();
 
 Route::get('/home', 'PagesController@index');
+
+Route::get('/cohorts', 'CohortController@index');

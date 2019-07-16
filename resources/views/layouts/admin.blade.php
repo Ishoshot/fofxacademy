@@ -51,7 +51,7 @@
                     <h3 class="menu-title">ACTIVITIES</h3><!-- /.menu-title -->
     
                     <li>
-                        <a href="#"> <i class="menu-icon fa fa-users"></i>Cohorts</a>
+                        <a href="/cohorts"> <i class="menu-icon fa fa-users"></i>Cohorts</a>
                     </li>
 
                     <li>
@@ -71,7 +71,15 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-wrench"></i>Settings</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li>
-                                <i class="menu-icon fa fa-sign-out"></i><a href="#">Log out</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                   <i class="fa fa-sign-out"></i> {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
                             </li>
                         </ul>
                     </li>
