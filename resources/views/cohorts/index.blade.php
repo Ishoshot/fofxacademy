@@ -175,7 +175,7 @@
             </div>
             
             <div class="modal-body">
-                <form action="/posts" method="POST" enctype="multipart/form-data">
+                <form action="/posts" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="title" class="col-form-label">{{ __('Post Title') }}</label>
