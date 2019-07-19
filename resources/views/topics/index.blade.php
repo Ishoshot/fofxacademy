@@ -125,7 +125,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Cohorts</h1>
+                <h1>TOPICS</h1>
             </div>
         </div>
     </div>
@@ -146,7 +146,7 @@
 
 <div class="content mt-3">
 
-    <div class="col-sm-12">
+    {{--  <div class="col-sm-12">
         @if($errors->any())
             @foreach ($errors->all() as $error)
                 <div class="alert  alert-danger alert-dismissible fade show" role="alert">
@@ -157,7 +157,7 @@
                 </div>
             @endforeach
          @endif
-    </div>
+    </div>  --}}
 
 
 
@@ -172,50 +172,62 @@
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" style="color:#000;" id="exampleModalLabel">Add New Cohorts</h5>
+                <h5 class="modal-title" style="color:#000;" id="exampleModalLabel">Add New Topic</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
 
             <div class="modal-body">
-                <form action="/cohorts" method="POST" class="user">
+                <form action="/topics" method="POST" class="user">
                     @csrf
 
                     <div class="form-group">
-                        <label for="cohorts_name" class="col-form-label">{{ __('Cohorts Name') }}</label><br/>
+                        <label for="topic_title" class="col-form-label">{{ __('Topic Title') }}</label><br/>
 
-                        <input id="cohorts_name"
-                        name="cohorts_name"
+                        <input id="topic_title"
+                        name="topic_title"
                         type="text"
-                        class="form-control form-control-user @error('cohorts_name') is-invalid @enderror"
+                        class="form-control form-control-user @error('topic_title') is-invalid @enderror"
                         autofocus rows="5" />
 
-                        @error('cohorts_name')
+                        @error('topic_title')
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                         </span>
                         @enderror
                     </div>
 
+                    <div class="form-group">
+                            <label for="start_date" class="col-form-label">{{ __('Start Date') }}</label><br/>
 
+                            <input id="start_date"
+                            name="start_date"
+                            type="date"
+                            class="form-control form-control-user @error('start_date') is-invalid @enderror"
+                            autofocus rows="5" />
 
-
+                            @error('start_date')
+                            <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                    </div>
 
                     <div class="form-group">
-                        <label for="cohort_status" class="col-form-label">{{ __('Cohort Status') }}</label>
-                        <div class="form-check">
-                            <label class="form-check-label">
-                              <input type="radio"  id="cohorts_active" class="form-check-input" name="cohorts_status"
-                             Value="Active" checked> Active
-                            </label>
-                          </div>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input type="radio"   id="cohorts_active" class="form-check-input" name="cohorts_status"
-                                Value="InActive"> InActive
-                            </label>
-                          </div>
+                            <label for="end_date" class="col-form-label">{{ __('End Date') }}</label><br/>
+
+                            <input id="end_date"
+                            name="end_date"
+                            type="date"
+                            class="form-control form-control-user @error('end_date') is-invalid @enderror"
+                            autofocus rows="5" />
+
+                            @error('end_date')
+                            <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                     </div>
 
                     <div class="d-flex row pt-4 justify-content-between">
@@ -224,7 +236,7 @@
                         </div>
 
                         <div class="mr-3">
-                        <button class="btn btn-primary">Create Cohort</button>
+                        <button class="btn btn-primary">Create Topic</button>
                         </div>
                     </div>
                 </form>
@@ -242,68 +254,46 @@
 <div class="col-md-12 mb-2 mt-3">
     <div class="card">
         <div class="card-header bg-primary">
-            <h3 class="text-white">COHORTS TABLE</h3>
+            <h3 class="text-white">Topics Table</h3>
         </div>
 
         <div class="card-body">
                 <table class="table">
                         <thead class="thead-dark">
                           <tr>
-                            <th scope="col">Cohort ID</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Created On</th>
+                            <th scope="col">Topic ID</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Start Date</th>
+                            <th scope="col">End Date</th>
                           </tr>
                         </thead>
                         <tbody>
-                        @foreach ($cohort as $cohorts)
+                        {{--  @foreach ($cohort as $cohorts)  --}}
                           <tr>
-                            <th scope="row">{{$cohorts->id}}</th>
+                            {{--  <th scope="row">{{$cohorts->id}}</th>  --}}
 
-                            <td>{{$cohorts->name}}</td>
+                            {{--  <td>{{$cohorts->name}}</td>  --}}
 
                             <td>
-                            {{$cohorts->status}}
-                            {{--  <toggle-button></toggle-button>  --}}
-                            <input data-id="{{$cohorts->id}}"
-                            class="toggle-class" type="checkbox"
-                            data-onstyle="success" data-offstyle="danger"
-                            data-toggle="toggle" data-on="Active"
-                             data-off="InActive" {{ $cohorts->status == 'Active' ? 'checked' : '' }}>
-                            </td>
 
-                            <td>{{ $cohorts->updated_at->format('l, M-F-Y @ H:i A') }}</td>
+                            <toggle-button></toggle-button>
+
+                            </td>
+                            {{--  <td>{{ $cohorts->updated_at->format('l, M-F-Y @ H:i A') }}</td>  --}}
                           </tr>
                         </tbody>
-                        @endforeach
+                        {{--  @endforeach  --}}
                       </table>
         </div>
 
         <div class="col-12 d-flex justify-content-center">
-              {{$cohort->links() }}
+              {{--  {{$cohort->links() }}  --}}
         </div>
         </div>
     </div>
 
 </div>
-<script>
-        $(function() {
-          $('.toggle-class').change(function() {
-              var status = $(this).prop('checked') == true ? 1 : 0;
-              var id = $(this).data('id');
 
-              $.ajax({
-                  type: "GET",
-                  dataType: "json",
-                  url: '/changeStatus',
-                  data: {'status': status, 'id': id},
-                  success: function(data){
-                    console.log(data.success)
-                  }
-              });
-          })
-        })
-      </script>
 </div> <!-- .content -->
 </div><!-- /#right-panel -->
 

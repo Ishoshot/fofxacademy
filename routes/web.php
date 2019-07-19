@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\CohortController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,17 @@ Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
+// INDEX ROUTES
 Route::get('/home', 'PagesController@index');
-
 Route::get('/cohorts', 'CohortController@index');
+Route::get('/pairs', 'PairsController@index');
+Route::get('/students', 'StudentsController@index');
+Route::get('/topics', 'TopicsController@index');
+
+// CREATE ROUTES
+Route::post('/cohorts', 'CohortController@store');
+
+Route::post('/changeStatus', 'CohortController@changeStatus');
+
+Route::post('topics', 'TopicsController@store');
+

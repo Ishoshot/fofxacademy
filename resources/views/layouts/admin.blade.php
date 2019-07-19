@@ -20,8 +20,13 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('vendors/font-awesome/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+
     <script src="{{ asset('vendors/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 </head>
 <body>
     <div id="app">
@@ -29,17 +34,17 @@
         <nav class="navbar navbar-expand-sm navbar-default">
 
             <div class="navbar-header">
-                
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
-                </button>                    
-                
+                </button>
+
                  <a class="mt-3 name navbar-brand"  href="{{ url('/home') }}">
                    {{ 'fofx() Academy' }}
                 </a>
 
                  <p class="navbar-brand hidden">fofx</p>
-            
+
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -49,13 +54,13 @@
                     </li>
 
                     <h3 class="menu-title">ACTIVITIES</h3><!-- /.menu-title -->
-    
+
                     <li>
                         <a href="/cohorts"> <i class="menu-icon fa fa-users"></i>Cohorts</a>
                     </li>
 
                     <li>
-                        <a href="#"> <i class="menu-icon fa fa-list"></i>Manage Topics </a>
+                        <a href="/topics"> <i class="menu-icon fa fa-list"></i>Manage Topics </a>
                     </li>
 
                     <li>
