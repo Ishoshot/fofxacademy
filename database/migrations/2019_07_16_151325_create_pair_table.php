@@ -19,6 +19,7 @@ class CreatePairTable extends Migration
             $table->Integer('topic_id');
             $table->Integer('students_id1');
             $table->Integer('students_id2');
+            $table->timestamps();
         });
     }
 

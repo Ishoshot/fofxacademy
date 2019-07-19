@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Topics extends Model
 {
-    protected $guarded =[];
-    public $timestamps = false;
+    protected $guarded = [];
 
     public function pairs()
     {
