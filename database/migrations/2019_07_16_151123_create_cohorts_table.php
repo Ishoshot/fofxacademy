@@ -15,7 +15,7 @@ class CreateCohortsTable extends Migration
     {
         Schema::create('cohorts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('status');
             $table->timestamps();
         });
