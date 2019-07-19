@@ -242,7 +242,7 @@
 <div class="col-md-12 mb-2 mt-3">
     <div class="card">
         <div class="card-header bg-primary">
-            <h3 class="text-white">COHORTS TABLE</h3>
+            <h3 class="text-white">Cohorts Table</h3>
         </div>
 
         <div class="card-body">

@@ -31,5 +31,5 @@ Route::post('/cohorts', 'CohortController@store');
 
 Route::post('/changeStatus', 'CohortController@changeStatus');
 
-Route::post('topics', 'TopicsController@store');
+Route::post('/topics', 'TopicsController@store');
 

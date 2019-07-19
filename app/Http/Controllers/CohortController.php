@@ -54,7 +54,7 @@ class CohortController extends Controller
     public function store()
     {
         $data = request()->validate([
-            'cohort_name' => 'required',
+            'cohorts_name' => 'required',
             'cohorts_status' =>'required'
         ]);
 

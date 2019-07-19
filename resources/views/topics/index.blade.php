@@ -268,21 +268,18 @@
                           </tr>
                         </thead>
                         <tbody>
-                        {{--  @foreach ($cohort as $cohorts)  --}}
+                        @foreach ($topics as $topics)
                           <tr>
-                            {{--  <th scope="row">{{$cohorts->id}}</th>  --}}
+                            <th scope="row">{{$topics->id}}</th>
 
-                            {{--  <td>{{$cohorts->name}}</td>  --}}
+                            <td>{{$topics->topic_title}}</td>
 
-                            <td>
+                            <td>{{$topics->start_date}}</td>
 
-                            <toggle-button></toggle-button>
-
-                            </td>
-                            {{--  <td>{{ $cohorts->updated_at->format('l, M-F-Y @ H:i A') }}</td>  --}}
+                            <td>{{$topics->end_date}}</td>
                           </tr>
                         </tbody>
-                        {{--  @endforeach  --}}
+                        @endforeach
                       </table>
         </div>
 
