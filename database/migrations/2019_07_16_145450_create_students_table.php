@@ -20,6 +20,7 @@ class CreateStudentsTable extends Migration
             $table->string('username');
             $table->string('cohort_status');
             $table->string('email')->unique();
+            $table->timestamps();
         });
     }
 

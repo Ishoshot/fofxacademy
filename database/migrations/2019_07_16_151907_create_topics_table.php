@@ -18,6 +18,7 @@ class CreateTopicsTable extends Migration
             $table->string('topic_title');
             $table->string('start_date');
             $table->string('end_date');
+            $table->timestamps();
         });
     }
 
