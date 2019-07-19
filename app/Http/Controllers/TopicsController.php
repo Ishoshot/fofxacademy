@@ -16,7 +16,9 @@ class TopicsController extends Controller
         $date = date('l, m-F-Y');
         $time = date('H:i A');
 
-        return view('topics.index', compact('date', 'time'));
+        $topics = Topics::latest()->paginate(5);
+
+        return view('topics.index', compact('date', 'time','topics'));
     }
 
     /**
@@ -24,10 +26,7 @@ class TopicsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -48,6 +47,8 @@ class TopicsController extends Controller
             'start_date' => $data['start_date'],
             'end_date' => $data['end_date']
             ]);
+
+            return back();
     }
 
     /**
