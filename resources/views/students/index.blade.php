@@ -125,7 +125,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Cohorts</h1>
+                <h1>Manage Students</h1>
             </div>
         </div>
     </div>
@@ -146,7 +146,7 @@
 
 <div class="content mt-3">
 
-    <div class="col-sm-12">
+     <div class="col-sm-12">
         @if($errors->any())
             @foreach ($errors->all() as $error)
                 <div class="alert  alert-danger alert-dismissible fade show" role="alert">
@@ -157,7 +157,7 @@
                 </div>
             @endforeach
          @endif
-    </div>
+    </div> 
 
 
 
@@ -172,51 +172,79 @@
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" style="color:#000;" id="exampleModalLabel">Add New Cohorts</h5>
+                <h5 class="modal-title" style="color:#000;" id="exampleModalLabel">Add New Students</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
 
             <div class="modal-body">
-                <form action="/cohorts" method="POST" class="user">
+                <form action="/students" method="POST" class="user">
                     @csrf
 
                     <div class="form-group">
-                        <label for="cohorts_name" class="col-form-label">{{ __('Cohorts Name') }}</label><br/>
+                        <label for="firstname" class="col-form-label">{{ __('Firstname') }}</label><br/>
 
-                        <input id="cohorts_name"
-                        name="cohorts_name"
+                        <input id="firstname"
+                        name="firstname"
                         type="text"
-                        class="form-control form-control-user @error('cohorts_name') is-invalid @enderror"
+                        class="form-control form-control-user @error('firstname') is-invalid @enderror"
                         autofocus rows="5" />
 
-                        @error('cohorts_name')
+                        @error('firstname')
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                         </span>
                         @enderror
                     </div>
 
+                    <div class="form-group">
+                            <label for="lastname" class="col-form-label">{{ __('Lastname') }}</label><br/>
 
+                            <input id="lastname"
+                            name="lastname"
+                            type="text"
+                            class="form-control form-control-user @error('lastname') is-invalid @enderror"
+                            autofocus rows="5" />
 
-
+                            @error('lastname')
+                            <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                    </div>
 
                     <div class="form-group">
-                        <label for="cohort_status" class="col-form-label">{{ __('Cohort Status') }}</label>
-                        <div class="form-check">
-                            <label class="form-check-label">
-                              <input type="radio"  id="cohorts_active" class="form-check-input" name="cohorts_status"
-                             Value="1" checked> Active
-                            </label>
-                          </div>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input type="radio"   id="cohorts_active" class="form-check-input" name="cohorts_status"
-                                Value="0"> InActive
-                            </label>
-                          </div>
+                            <label for="username" class="col-form-label">{{ __('Username') }}</label><br/>
+
+                            <input id="username"
+                            name="username"
+                            type="text"
+                            class="form-control form-control-user @error('username') is-invalid @enderror"
+                            autofocus rows="5" />
+
+                            @error('username')
+                            <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                     </div>
+
+                    <div class="form-group">
+                        <label for="cohort_id" class="col-form-label">{{ __('Cohort ID') }}</label><br/>
+
+                        <input id="cohort_id"
+                        name="cohort_id"
+                        type="text"
+                        class="form-control form-control-user @error('cohort_id') is-invalid @enderror"
+                        autofocus rows="5" />
+
+                        @error('cohort_id')
+                        <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                </div>
 
                     <div class="d-flex row pt-4 justify-content-between">
                         <div class="ml-3">
@@ -224,7 +252,7 @@
                         </div>
 
                         <div class="mr-3">
-                        <button class="btn btn-primary">Create Cohort</button>
+                        <button class="btn btn-primary">Create Students</button>
                         </div>
                     </div>
                 </form>
@@ -242,38 +270,32 @@
 <div class="col-md-12 mb-2 mt-3">
     <div class="card">
         <div class="card-header bg-primary">
-            <h3 class="text-white">Cohorts Table</h3>
+            <h3 class="text-white">Students Table</h3>
         </div>
 
         <div class="card-body">
                 <table class="table">
                         <thead class="thead-dark">
                           <tr>
-                            <th scope="col">Cohort ID</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Created On</th>
+                            <th scope="col">S/N</th>
+                            <th scope="col">Firstname</th>
+                            <th scope="col">Lastname</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Cohort Status</th>
                           </tr>
                         </thead>
                         <tbody>
-                        @foreach ($cohort as $cohorts)
+                        @foreach ($students as $students)
                           <tr>
-                            <th scope="row">{{$cohorts->id}}</th>
+                            <th scope="row">{{$students->id}}</th>
 
-                            <td>{{$cohorts->name}}</td>
+                            <td>{{$students->firstname}}</td>
 
-                            <td>
-                            {{--  <toggle-button></toggle-button>  --}}
-                            <form>
-                            <input data-id="{{$cohorts->id}}"
-                            class="toggle-class" type="checkbox"
-                            data-onstyle="success" data-offstyle="danger"
-                            data-toggle="toggle" data-on="Active"
-                            data-off="InActive" {{ $cohorts->status ? 'checked' : '' }}>
-                            </form>
-                            </td>
+                            <td>{{$students->lastname}}</td>
+                            
+                            <td>{{$students->username}}</td>
 
-                            <td>{{ $cohorts->updated_at->format('l, M-F-Y @ H:i A') }}</td>
+                            <td>{{$students->cohort_status}}</td>
                           </tr>
                         </tbody>
                         @endforeach
@@ -281,30 +303,13 @@
         </div>
 
         <div class="col-12 d-flex justify-content-center">
-              {{$cohort->links() }}
+               {{-- {{$students->links() }}  --}}
         </div>
         </div>
     </div>
 
 </div>
 
-<script>
-    $( ".toggle-class" ).change(function() {
-        var status = $(this).prop('checked') == true ? 1 : 0;
-        var cohort_id = $(this).data('id');
-
-        $.ajax({
-            type: "GET",
-            dataType: "json",
-            url: 'changeStatus',
-            headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}' },
-            data: {'status': status, 'id': cohort_id},
-            success: function(data){
-              console.log((data.success));
-            }
-        });
-      });
-  </script>
 </div> <!-- .content -->
 </div><!-- /#right-panel -->
 

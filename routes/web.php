@@ -26,10 +26,13 @@ Route::get('/pairs', 'PairsController@index');
 Route::get('/students', 'StudentsController@index');
 Route::get('/topics', 'TopicsController@index');
 
-// CREATE ROUTES
+// STORAGE ROUTES
 Route::post('/cohorts', 'CohortController@store');
 
-Route::post('/changeStatus', 'CohortController@changeStatus');
+Route::get('/changeStatus', 'CohortController@changeStatus');
 
 Route::post('/topics', 'TopicsController@store');
+
+Route::post('/students', 'StudentsController@store');
+
 

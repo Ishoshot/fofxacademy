@@ -1,9 +1,8 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Cohort;
+
 
 class CohortController extends Controller
 {
@@ -33,23 +32,6 @@ class CohortController extends Controller
         return view('cohorts.index',compact('date','time', 'cohort'));
     }
 
-    public function changeStatus(Cohort $cohort)
-    {
-        // $cohortChange = Cohort::find($request->cohort_id);
-
-        // $cohortChange->status = $request->cohort_status;
-
-        // $cohortChange->save();
-
-        // return response()->json(['success'=>'Status change successfully.']);
-
-        // $cohort = Cohort::find($cohort->id);
-        // $user->status = $request->status;
-        // $user->save();
-
-        return response()->json(['success'=>'Status change successfully.']);
-    }
-
 
     public function store()
     {
@@ -58,7 +40,6 @@ class CohortController extends Controller
             'cohorts_status' =>'required'
         ]);
 
-
        $insertCohort = Cohort::create([
             'name' => $data['cohorts_name'],
             'status' => $data['cohorts_status']
@@ -66,5 +47,11 @@ class CohortController extends Controller
             return back();
     }
 
-
+    public function changeStatus(Request $request)
+    {
+        $change = Cohort::find($request->id);
+        $change->status = $request->status;
+        $change->save();
+        return response()->json(['success'=>'Status change successfully.']);
+    }
 }

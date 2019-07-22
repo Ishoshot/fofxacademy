@@ -146,7 +146,7 @@
 
 <div class="content mt-3">
 
-    {{--  <div class="col-sm-12">
+     <div class="col-sm-12">
         @if($errors->any())
             @foreach ($errors->all() as $error)
                 <div class="alert  alert-danger alert-dismissible fade show" role="alert">
@@ -157,7 +157,7 @@
                 </div>
             @endforeach
          @endif
-    </div>  --}}
+    </div> 
 
 
 
@@ -204,7 +204,7 @@
                             <input id="start_date"
                             name="start_date"
                             type="date"
-                            class="form-control form-control-user @error('start_date') is-invalid @enderror"
+                            class="form-control form-control-user @error('start_da te') is-invalid @enderror"
                             autofocus rows="5" />
 
                             @error('start_date')
@@ -265,6 +265,7 @@
                             <th scope="col">Title</th>
                             <th scope="col">Start Date</th>
                             <th scope="col">End Date</th>
+                            <th scope="col">Delete</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -277,6 +278,8 @@
                             <td>{{$topics->start_date}}</td>
 
                             <td>{{$topics->end_date}}</td>
+                            {{-- <td>{{$topics->end_date}}</td> --}}
+
                           </tr>
                         </tbody>
                         @endforeach
@@ -284,7 +287,7 @@
         </div>
 
         <div class="col-12 d-flex justify-content-center">
-              {{--  {{$cohort->links() }}  --}}
+              {{-- {{$topics->links() }} --}}
         </div>
         </div>
     </div>

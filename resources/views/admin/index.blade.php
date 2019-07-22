@@ -97,7 +97,7 @@
         <div class="col-sm-5">
             <div class="user-area dropdown float-right">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-user"></i> 
+                    <i class="fa fa-user"></i>
                 </a>
 
                 <div class="user-menu dropdown-menu">
@@ -119,7 +119,7 @@
 </header> <!-- /header -->
 <!-- Header-->
 
-   
+
 <div class="breadcrumbs">
     <div class="col-sm-4">
         <div class="page-header float-left">
@@ -154,7 +154,7 @@
             </button>
         </div>
     </div>
-           
+
 <div class="col-md-12 text-center mb-2 mt-2">
 
       <div class="card col-md-4 mt-5 p-3">
@@ -167,7 +167,7 @@
             <div class="progress progress-xs mt-3 mb-0 bg-flat-color-1" style="width: 40%; height: 5px;"></div>
           </div>
         </div>
-      </div> 
+      </div>
 
       <div class="card col-md-4 mt-5 p-3">
         <div class="card-body bg-flat-color-0">
@@ -179,7 +179,7 @@
             <div class="progress progress-xs mt-3 mb-0 bg-flat-color-5" style="width: 60%; height: 5px;"></div>
           </div>
       </div>
-      </div> 
+      </div>
 
       <div class="card col-md-4 mt-5 p-3">
         <div class="card-body bg-flat-color-0">
@@ -191,7 +191,7 @@
             <div class="progress progress-xs mt-3 mb-0 bg-flat-color-3" style="width: 80%; height: 5px;"></div>
           </div>
       </div>
-      </div> 
+      </div>
 
 </div>
 
@@ -200,7 +200,7 @@
     <div class="card col-md-4 mt-5 p-3">
         <div class="card-body bg-flat-color-0">
             <div class="div-square">
-                <a href="#">
+                <a href="/students">
                     <i class="fa fa-user fa-5x"></i>
                     <h4 class="pt-4">MANAGE STUDENTS</h4>
                 </a>
@@ -208,9 +208,9 @@
             </div>
         </div>
     </div>
-      
-     
-</div>   
+
+
+</div>
 
 
 </div> <!-- .content -->
