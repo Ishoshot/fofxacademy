@@ -28,11 +28,9 @@ Route::get('/topics', 'TopicsController@index');
 
 // STORAGE ROUTES
 Route::post('/cohorts', 'CohortController@store');
-
 Route::get('/changeStatus', 'CohortController@changeStatus');
-
 Route::post('/topics', 'TopicsController@store');
-
 Route::post('/students', 'StudentsController@store');
 
+// Route::post('/submit', 'AttendanceController@submit');
 

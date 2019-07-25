@@ -1,11 +1,15 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
+use App\Http\Requests;
 use App\Cohort;
 
 
 class CohortController extends Controller
 {
+
     /**
      * Create a new controller instance.
      *
@@ -14,7 +18,7 @@ class CohortController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('guest');
     }
 
     /**
@@ -22,13 +26,14 @@ class CohortController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-
+    
     public function index()
     {
         $date = date('l, m-F-Y');
         $time = date('H:i A');
 
         $cohort = Cohort::latest()->paginate(5);
+                
         return view('cohorts.index',compact('date','time', 'cohort'));
     }
 
@@ -44,7 +49,8 @@ class CohortController extends Controller
             'name' => $data['cohorts_name'],
             'status' => $data['cohorts_status']
         ]);
-            return back();
+        
+        return back();
     }
 
     public function changeStatus(Request $request)
@@ -54,4 +60,5 @@ class CohortController extends Controller
         $change->save();
         return response()->json(['success'=>'Status change successfully.']);
     }
+
 }
