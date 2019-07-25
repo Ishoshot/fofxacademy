@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Topics;
 class TopicsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,9 +20,11 @@ class TopicsController extends Controller
         $date = date('l, m-F-Y');
         $time = date('H:i A');
 
-        $topics = Topics::latest()->paginate(5);
+        $topicsCount = Topics::count();
 
-        return view('topics.index', compact('date', 'time','topics'));
+        $topic = Topics::latest()->paginate(5);
+
+        return view('topics.index', compact('date', 'time','topic', 'topicsCount'));
     }
 
     /**
@@ -37,9 +43,9 @@ class TopicsController extends Controller
     public function store(Request $request)
     {
         $data= $request->validate([
-            'topic_title' => 'required',
-            'start_date' => 'required',
-            'end_date' => 'required'
+            'topic_title' => 'required|unique:topics|min:4',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after:start_date'
             ]);
 
             $insertTopic = Topics::create([
@@ -91,8 +97,12 @@ class TopicsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id){
+
+        Topics::find($id)->delete($id);
+
+        return response()->json([
+            'success' => 'Record deleted successfully!'
+        ]);
     }
 }
