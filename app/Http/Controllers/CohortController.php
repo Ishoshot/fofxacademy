@@ -27,21 +27,21 @@ class CohortController extends Controller
     {
         $date = date('l, m-F-Y');
         $time = date('H:i A');
-
+        $countCohort = Cohort::count();
         $cohort = Cohort::latest()->paginate(5);
-        return view('cohorts.index',compact('date','time', 'cohort'));
+        return view('cohorts.index',compact('date','time', 'cohort','countCohort'));
     }
 
 
     public function store()
     {
         $data = request()->validate([
-            'cohorts_name' => 'required',
+            'name' => 'required|unique:cohorts',
             'cohorts_status' =>'required'
         ]);
 
        $insertCohort = Cohort::create([
-            'name' => $data['cohorts_name'],
+            'name' => $data['name'],
             'status' => $data['cohorts_status']
         ]);
             return back();
@@ -52,6 +52,16 @@ class CohortController extends Controller
         $change = Cohort::find($request->id);
         $change->status = $request->status;
         $change->save();
+
         return response()->json(['success'=>'Status change successfully.']);
+    }
+
+    public function destroy($id){
+
+        Cohort::find($id)->delete($id);
+
+        return response()->json([
+            'success' => 'Record deleted successfully!'
+        ]);
     }
 }

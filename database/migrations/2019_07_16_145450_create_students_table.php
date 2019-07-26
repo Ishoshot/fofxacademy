@@ -17,9 +17,8 @@ class CreateStudentsTable extends Migration
            $table->bigIncrements('id');
             $table->string('firstname');
             $table->string('lastname');
-            $table->string('username');
-            $table->string('cohort_status');
-            $table->string('email')->unique();
+            $table->string('username')->unique();
+            $table->string('cohort_name');
             $table->timestamps();
         });
     }

@@ -1,5 +1,15 @@
 <?php
 use App\Http\Controllers\CohortController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\PairsController;
+use App\Http\Controllers\StudentsController;
+use App\Http\Controllers\TopicsController;
+use App\Http\Controllers\RegisterController;
+
+
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +25,13 @@ use App\Http\Controllers\CohortController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
+
 Route::get('/', 'HomeController@index');
 
 Auth::routes();
+
+Route::get('logout', 'Auth\LoginController@logout');
 
 // INDEX ROUTES
 Route::get('/home', 'PagesController@index');
@@ -34,5 +48,11 @@ Route::get('/changeStatus', 'CohortController@changeStatus');
 Route::post('/topics', 'TopicsController@store');
 
 Route::post('/students', 'StudentsController@store');
+Route::post('/pairs', 'PairsController@store');
 
+// DELETE ROUTES
+Route::delete('cohorts/{id}', 'CohortController@destroy')->name('cohort.destroy');
+Route::delete('topics/{id}', 'TopicsController@destroy')->name('topics.destroy');
+Route::delete('students/{id}', 'StudentsController@destroy')->name('students.destroy');
+Route::delete('pairs/{id}', 'PairsController@destroy')->name('pairs.destroy');
 

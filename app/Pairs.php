@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pairs extends Model
 {
+    protected $guarded =[];
+
     public function topics()
     {
         return $this->hasMany(Topics::class);
@@ -14,6 +16,12 @@ class Pairs extends Model
     public function cohorts()
     {
 
-        return $this->hasOne(Cohorts::class);
+        return $this->belongsToMany(Cohorts::class);
+    }
+
+    public function students()
+    {
+
+        return $this->belongsToMany(Students::class);
     }
 }

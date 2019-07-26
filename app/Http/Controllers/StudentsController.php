@@ -8,34 +8,53 @@ use App\Cohort;
 
 class StudentsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $date = date('l, m-F-Y');
         $time = date('H:i A');
 
-        $students = Students::latest()->paginate(5);
+        $cohort = Cohort::all();
 
-        return view('students.index', compact('date', 'time','students'));
+        $studentsCount = Students::count();
+
+        $student = Students::latest()->paginate(5);
+
+        return view('students.index', compact('date', 'time','student','cohort', 'studentsCount'));
     }
 
-    public function  store(){
+    public function  store()
+    {
         $data = request()->validate([
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'username' => 'required |unique:students',
-            'cohort_id' => 'required'
+            'firstname' => 'required|min:3',
+            'lastname' => 'required|min:3',
+            'username' => 'required |unique:students|min:3',
+            'cohort_name' => 'required'
         ]);
-        
-        $status = Cohort::find($data['cohort_id']);
-       
-        $student_status = $status->status;
+
+        // dd($data['cohort_name']);
 
         $students = Students::create([
             'firstname' => $data['firstname'],
-            'lastname' =>$data['lastname'],
-            'username' =>$data['username'],
-            'cohort_status' => $student_status
+            'lastname' => $data['lastname'],
+            'username' => $data['username'],
+            'cohort_name' => $data['cohort_name']
         ]);
+
         return back();
     }
+
+    public function destroy($id)
+    {
+        Students::find($id)->delete($id);
+
+        return response()->json([
+            'success' => 'Record deleted successfully!'
+        ]);
+    }
 }
+

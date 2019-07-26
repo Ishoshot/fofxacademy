@@ -1,98 +1,56 @@
 @extends('layouts.admin')
 
 @section('content')
-<!-- Left Panel -->
+{{-- <!-- Left Panel --> --}}
 
 
-<!-- Left Panel -->
+{{-- <!-- Left Panel --> --}}
 
-<!-- Right Panel -->
+{{-- <!-- Right Panel --> --}}
 
 <div id="right-panel" class="right-panel">
 
 <!-- Header-->
 <header id="header" class="header">
 
-    <div class="header-menu">
+   <div class="header-menu">
 
         <div class="col-sm-7">
-            <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
-            <div class="header-left">
-                <button class="search-trigger"><i class="fa fa-search"></i></button>
-                <div class="form-inline">
-                    <form class="search-form">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
-                        <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
-                    </form>
-                </div>
-
-                <div class="dropdown for-notification">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-bell"></i>
-
-                        <span class="count bg-danger">5</span>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="notification">
-                        <p class="red">You have 3 Notification</p>
-                        <a class="dropdown-item media bg-flat-color-1" href="#">
-                        <i class="fa fa-check"></i>
-                        <p>Server #1 overloaded.</p>
-                    </a>
-                        <a class="dropdown-item media bg-flat-color-4" href="#">
-                        <i class="fa fa-info"></i>
-                        <p>Server #2 overloaded.</p>
-                    </a>
-                        <a class="dropdown-item media bg-flat-color-5" href="#">
-                        <i class="fa fa-warning"></i>
-                        <p>Server #3 overloaded.</p>
-                    </a>
+                <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
+                <div class="header-left">
+                    <button class="search-trigger"><i class="fa fa-search"></i></button>
+                    <div class="form-inline">
+                        <form class="search-form">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
+                            <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
+                        </form>
                     </div>
-                </div>
 
-                <div class="dropdown for-message">
-                    <button class="btn btn-secondary dropdown-toggle" type="button"
-                        id="message"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="ti-email"></i>
-                        <span class="count bg-primary">9</span>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="message">
-                        <p class="red">You have 4 Mails</p>
-                        <a class="dropdown-item media bg-flat-color-1" href="#">
-                        <span class="photo media-left"><img alt="avatar" src="images/avatar/1.jpg"></span>
-                        <span class="message media-body">
-                            <span class="name float-left">Jonathan Smith</span>
-                            <span class="time float-right">Just now</span>
-                                <p>Hello, this is an example msg</p>
-                        </span>
-                    </a>
-                        <a class="dropdown-item media bg-flat-color-4" href="#">
-                        <span class="photo media-left"><img alt="avatar" src="images/avatar/2.jpg"></span>
-                        <span class="message media-body">
-                            <span class="name float-left">Jack Sanders</span>
-                            <span class="time float-right">5 minutes ago</span>
-                                <p>Lorem ipsum dolor sit amet, consectetur</p>
-                        </span>
-                    </a>
-                        <a class="dropdown-item media bg-flat-color-5" href="#">
-                        <span class="photo media-left"><img alt="avatar" src="images/avatar/3.jpg"></span>
-                        <span class="message media-body">
-                            <span class="name float-left">Cheryl Wheeler</span>
-                            <span class="time float-right">10 minutes ago</span>
-                                <p>Hello, this is an example msg</p>
-                        </span>
-                    </a>
-                        <a class="dropdown-item media bg-flat-color-3" href="#">
-                        <span class="photo media-left"><img alt="avatar" src="images/avatar/4.jpg"></span>
-                        <span class="message media-body">
-                            <span class="name float-left">Rachel Santos</span>
-                            <span class="time float-right">15 minutes ago</span>
-                                <p>Lorem ipsum dolor sit amet, consectetur</p>
-                        </span>
-                    </a>
+                    <div class="dropdown for-notification">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-bell"></i>
+
+                            {{-- <span class="count bg-danger"></span> --}}
+                        </button>
+                        {{-- <div class="dropdown-menu" aria-labelledby="notification">
+                            <p class="red">You have 3 Notification</p>
+                            <a class="dropdown-item media bg-flat-color-1" href="#">
+                            <i class="fa fa-check"></i>
+                            <p>Server #1 overloaded.</p>
+                        </a>
+                            <a class="dropdown-item media bg-flat-color-4" href="#">
+                            <i class="fa fa-info"></i>
+                            <p>Server #2 overloaded.</p>
+                        </a>
+                            <a class="dropdown-item media bg-flat-color-5" href="#">
+                            <i class="fa fa-warning"></i>
+                            <p>Server #3 overloaded.</p>
+                        </a>
+                        </div> --}}
                     </div>
+
+
                 </div>
-            </div>
         </div>
 
         <div class="col-sm-5">
@@ -157,7 +115,7 @@
                 </div>
             @endforeach
          @endif
-    </div> 
+    </div>
 
 
 
@@ -254,46 +212,84 @@
 <div class="col-md-12 mb-2 mt-3">
     <div class="card">
         <div class="card-header bg-primary">
-            <h3 class="text-white">Topics Table</h3>
+            <h3 class="text-white">Topics List</h3>
         </div>
 
         <div class="card-body">
-                <table class="table">
-                        <thead class="thead-dark">
-                          <tr>
-                            <th scope="col">Topic ID</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">Start Date</th>
-                            <th scope="col">End Date</th>
-                            <th scope="col">Delete</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                        @foreach ($topics as $topics)
-                          <tr>
-                            <th scope="row">{{$topics->id}}</th>
+            @if($topicsCount < 1)
+            <div class="alert  alert-warning alert-dismissible fade show" role="alert">
+                    <i class="fa fa-volume-up"></i>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>No Topic Found !, Add New Topic
+            </div>
+            @else
+            <table class="table text-center">
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">Topic ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">Start Date</th>
+                <th scope="col">End Date</th>
+                <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach ($topic as $topics)
+                <tr>
+                <th scope="row">{{$topics->id}}</th>
 
-                            <td>{{$topics->topic_title}}</td>
+                <td>{{$topics->topic_title}}</td>
 
-                            <td>{{$topics->start_date}}</td>
+                <td>
+                    {{$topics->start_date}}
+                </td>
 
-                            <td>{{$topics->end_date}}</td>
-                            {{-- <td>{{$topics->end_date}}</td> --}}
+                <td>
+                    {{$topics->end_date}}
+                </td>
 
-                          </tr>
-                        </tbody>
-                        @endforeach
-                      </table>
+                <td>
+                    <button class="deleteRecord  btn btn-outline-danger" id="del" data-id="{{$topics->id}}"><i class="fa fa-trash-o"></i></button>
+                </td>
+
+                </tr>
+            </tbody>
+            @endforeach
+            </table>
+            @endif
         </div>
 
         <div class="col-12 d-flex justify-content-center">
-              {{-- {{$topics->links() }} --}}
+              {{$topic->links() }}
         </div>
         </div>
     </div>
 
 </div>
+<script>
+    $(".deleteRecord").click(function(){
+        var id = $(this).data("id");
+        var token = $("meta[name='csrf-token']").attr("content");
 
+        $.ajax(
+        {
+            url: "topics/"+id,
+            type: 'DELETE',
+            data: {
+                "id": id,
+                "_token": token,
+            },
+
+            success: function (){
+                setTimeout(function(){
+                    location. reload(true);
+                }, 1000);
+            }
+        });
+
+    });
+</script>
 </div> <!-- .content -->
 </div><!-- /#right-panel -->
 

@@ -1,16 +1,14 @@
 @extends('layouts.admin')
 
 @section('content')
-<!-- Left Panel -->
 
 
-<!-- Left Panel -->
 
-<!-- Right Panel -->
+{{-- <!-- Right Panel --> --}}
 
 <div id="right-panel" class="right-panel">
 
-<!-- Header-->
+{{-- <!-- Header--> --}}
 <header id="header" class="header">
 
     <div class="header-menu">
@@ -30,9 +28,9 @@
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-bell"></i>
 
-                        <span class="count bg-danger">5</span>
+                        {{-- <span class="count bg-danger"></span> --}}
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="notification">
+                    {{-- <div class="dropdown-menu" aria-labelledby="notification">
                         <p class="red">You have 3 Notification</p>
                         <a class="dropdown-item media bg-flat-color-1" href="#">
                         <i class="fa fa-check"></i>
@@ -46,52 +44,10 @@
                         <i class="fa fa-warning"></i>
                         <p>Server #3 overloaded.</p>
                     </a>
-                    </div>
+                    </div> --}}
                 </div>
 
-                <div class="dropdown for-message">
-                    <button class="btn btn-secondary dropdown-toggle" type="button"
-                        id="message"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="ti-email"></i>
-                        <span class="count bg-primary">9</span>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="message">
-                        <p class="red">You have 4 Mails</p>
-                        <a class="dropdown-item media bg-flat-color-1" href="#">
-                        <span class="photo media-left"><img alt="avatar" src="images/avatar/1.jpg"></span>
-                        <span class="message media-body">
-                            <span class="name float-left">Jonathan Smith</span>
-                            <span class="time float-right">Just now</span>
-                                <p>Hello, this is an example msg</p>
-                        </span>
-                    </a>
-                        <a class="dropdown-item media bg-flat-color-4" href="#">
-                        <span class="photo media-left"><img alt="avatar" src="images/avatar/2.jpg"></span>
-                        <span class="message media-body">
-                            <span class="name float-left">Jack Sanders</span>
-                            <span class="time float-right">5 minutes ago</span>
-                                <p>Lorem ipsum dolor sit amet, consectetur</p>
-                        </span>
-                    </a>
-                        <a class="dropdown-item media bg-flat-color-5" href="#">
-                        <span class="photo media-left"><img alt="avatar" src="images/avatar/3.jpg"></span>
-                        <span class="message media-body">
-                            <span class="name float-left">Cheryl Wheeler</span>
-                            <span class="time float-right">10 minutes ago</span>
-                                <p>Hello, this is an example msg</p>
-                        </span>
-                    </a>
-                        <a class="dropdown-item media bg-flat-color-3" href="#">
-                        <span class="photo media-left"><img alt="avatar" src="images/avatar/4.jpg"></span>
-                        <span class="message media-body">
-                            <span class="name float-left">Rachel Santos</span>
-                            <span class="time float-right">15 minutes ago</span>
-                                <p>Lorem ipsum dolor sit amet, consectetur</p>
-                        </span>
-                    </a>
-                    </div>
-                </div>
+
             </div>
         </div>
 
@@ -117,10 +73,11 @@
         </div>
     </div>
 
-</header> <!-- /header -->
-<!-- Header-->
+</header> {{-- <!-- /header --> --}}
+{{-- <!-- Header--> --}}
 
 
+{{-- BREADCRUM FOR DATE & TIME DISPLAY --}}
 <div class="breadcrumbs">
     <div class="col-sm-4">
         <div class="page-header float-left">
@@ -146,6 +103,7 @@
 
 <div class="content mt-3">
 
+{{-- DISPLAYS ALL VALIDATION ERRORS --}}
     <div class="col-sm-12">
         @if($errors->any())
             @foreach ($errors->all() as $error)
@@ -160,14 +118,14 @@
     </div>
 
 
-
+{{-- BUTTON FOR MODAL POPUP --}}
 <div class="col-sm-12">
     <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">
     {{ 'Add New' }} <i class="fa fa-plus"></i>
     </button>
 </div>
 
-<!-- Modal -->
+{{-- <!-- Modal --> --}}
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
@@ -183,24 +141,20 @@
                     @csrf
 
                     <div class="form-group">
-                        <label for="cohorts_name" class="col-form-label">{{ __('Cohorts Name') }}</label><br/>
+                        <label for="name" class="col-form-label">{{ __('Cohorts Name') }}</label><br/>
 
-                        <input id="cohorts_name"
-                        name="cohorts_name"
+                        <input id="name"
+                        name="name"
                         type="text"
-                        class="form-control form-control-user @error('cohorts_name') is-invalid @enderror"
+                        class="form-control form-control-user @error('name') is-invalid @enderror"
                         autofocus rows="5" />
 
-                        @error('cohorts_name')
+                        @error('name')
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                         </span>
                         @enderror
                     </div>
-
-
-
-
 
                     <div class="form-group">
                         <label for="cohort_status" class="col-form-label">{{ __('Cohort Status') }}</label>
@@ -237,58 +191,79 @@
 </div>
 
 
-{{--    --}}
-
+{{--  TABLE TO DISPLAY ALL RECORDS IN COHORTS TABLES  --}}
 <div class="col-md-12 mb-2 mt-3">
     <div class="card">
         <div class="card-header bg-primary">
-            <h3 class="text-white">Cohorts Table</h3>
+            <h3 class="text-white">Cohorts List</h3>
         </div>
 
         <div class="card-body">
-                <table class="table">
-                        <thead class="thead-dark">
-                          <tr>
-                            <th scope="col">Cohort ID</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Created On</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                        @foreach ($cohort as $cohorts)
-                          <tr>
-                            <th scope="row">{{$cohorts->id}}</th>
+            {{-- Checks if the table is empty --}}
+            @if($countCohort < 1)
+            <div class="alert  alert-warning alert-dismissible fade show" role="alert">
+                    <i class="fa fa-volume-up"></i>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>Nothing Here Yet !, Add New Cohorts
+            </div>
+            @else
+            <table class="table text-center">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Cohort ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Created On</th>
+                    <th scope="col">Remove</th>
+                </tr>
+            </thead>
+            <tbody>
 
-                            <td>{{$cohorts->name}}</td>
+            @foreach ($cohort as $cohorts)
+            <tr>
+                <th scope="row">{{$cohorts->id}}</th>
 
-                            <td>
-                            {{--  <toggle-button></toggle-button>  --}}
-                            <form>
-                            <input data-id="{{$cohorts->id}}"
-                            class="toggle-class" type="checkbox"
-                            data-onstyle="success" data-offstyle="danger"
-                            data-toggle="toggle" data-on="Active"
-                            data-off="InActive" {{ $cohorts->status ? 'checked' : '' }}>
-                            </form>
-                            </td>
+                <td>{{$cohorts->name}}</td>
 
-                            <td>{{ $cohorts->updated_at->format('l, M-F-Y @ H:i A') }}</td>
-                          </tr>
-                        </tbody>
-                        @endforeach
-                      </table>
+                <td>
+                    <form>
+                        <input data-id="{{$cohorts->id}}"
+                        class="toggle-class btn" type="checkbox"
+                        data-onstyle="success" data-offstyle="danger"
+                        data-toggle="toggle" data-on="Active"
+                        data-off="InActive" {{ $cohorts->status ? 'checked' : '' }}>
+                    </form>
+                </td>
+
+                <td>
+                    {{ $cohorts->updated_at->format('l, M-F-Y @ H:i A') }}
+                </td>
+
+                <td>
+                    <button class="deleteRecord  btn btn-outline-danger" id="del" data-id="{{ $cohorts->id }}"><i class="fa fa-trash-o"></i></button>
+                </td>
+            </tr>
+               @endforeach
+            </tbody>
+            </table>
+            @endif
         </div>
 
         <div class="col-12 d-flex justify-content-center">
-              {{$cohort->links() }}
+           {{$cohort->links() }}
         </div>
-        </div>
+
+    </div>
     </div>
 
 </div>
 
+
+{{-- INLINE JS --}}
 <script>
+
+    {{-- STATUS TOGGLER --}}
     $( ".toggle-class" ).change(function() {
         var status = $(this).prop('checked') == true ? 1 : 0;
         var cohort_id = $(this).data('id');
@@ -300,14 +275,40 @@
             headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}' },
             data: {'status': status, 'id': cohort_id},
             success: function(data){
-              console.log((data.success));
+
             }
         });
       });
-  </script>
+
+
+      {{-- DELETE REQUEST --}}
+      $(".deleteRecord").click(function(){
+        var id = $(this).data("id");
+        var token = $("meta[name='csrf-token']").attr("content");
+
+        $.ajax(
+        {
+            url: "cohorts/"+id,
+            type: 'DELETE',
+            data: {
+                "id": id,
+                "_token": token,
+            },
+
+            success: function (){
+                setTimeout(function(){
+                    location. reload(true);
+                }, 1000);
+            }
+        });
+
+    });
+</script>
+
+
 </div> <!-- .content -->
 </div><!-- /#right-panel -->
 
-<!-- Right Panel -->
+{{-- <!-- Right Panel --> --}}
 
 @endsection
